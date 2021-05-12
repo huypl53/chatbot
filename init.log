@@ -1,0 +1,94 @@
+❯ rasa init     
+┌────────────────────────────────────────────────────────────────────────────────┐
+│ Rasa Open Source reports anonymous usage telemetry to help improve the product │
+│ for all its users.                                                             │
+│                                                                                │
+│ If you'd like to opt-out, you can use `rasa telemetry disable`.                │
+│ To learn more, check out https://rasa.com/docs/rasa/telemetry/telemetry.       │
+└────────────────────────────────────────────────────────────────────────────────┘
+Welcome to Rasa! 🤖
+
+To get started quickly, an initial project will be created.
+If you need some help, check out the documentation at https://rasa.com/docs/rasa.
+Now let's start! 👇🏽
+
+? Please enter a path where the project will be created [default: current directory] chatbot                                                                                                  
+? Path 'chatbot' does not exist 🧐. Create path? Yes                                                                                                                                          
+Created project directory at '/mnt/01D322563C532490/dev_project/Python/NLP/chatbot/chatbot'.
+Finished creating project structure.
+? Do you want to train an initial model? 💪🏽 Yes                                                                                                                                             
+Training an initial model...
+The configuration for pipeline and policies was chosen automatically. It was written into the config file at 'chatbot/config.yml'.
+Training NLU model...
+/home/huy/anaconda3/envs/rasa/lib/python3.8/site-packages/rasa/utils/train_utils.py:533: UserWarning: model_confidence is set to `softmax`. It is recommended to try using `model_confidence=linear_norm` to make it easier to tune fallback thresholds.
+  rasa.shared.utils.io.raise_warning(
+2021-05-04 14:13:15 INFO     rasa.shared.nlu.training_data.training_data  - Training data stats:
+2021-05-04 14:13:15 INFO     rasa.shared.nlu.training_data.training_data  - Number of intent examples: 69 (7 distinct intents)
+
+2021-05-04 14:13:15 INFO     rasa.shared.nlu.training_data.training_data  -   Found intents: 'greet', 'bot_challenge', 'mood_unhappy', 'mood_great', 'goodbye', 'affirm', 'deny'
+2021-05-04 14:13:15 INFO     rasa.shared.nlu.training_data.training_data  - Number of response examples: 0 (0 distinct responses)
+2021-05-04 14:13:15 INFO     rasa.shared.nlu.training_data.training_data  - Number of entity examples: 0 (0 distinct entities)
+2021-05-04 14:13:15 INFO     rasa.nlu.model  - Starting to train component WhitespaceTokenizer
+2021-05-04 14:13:15 INFO     rasa.nlu.model  - Finished training component.
+2021-05-04 14:13:15 INFO     rasa.nlu.model  - Starting to train component RegexFeaturizer
+2021-05-04 14:13:15 INFO     rasa.nlu.model  - Finished training component.
+2021-05-04 14:13:15 INFO     rasa.nlu.model  - Starting to train component LexicalSyntacticFeaturizer
+2021-05-04 14:13:15 INFO     rasa.nlu.model  - Finished training component.
+2021-05-04 14:13:15 INFO     rasa.nlu.model  - Starting to train component CountVectorsFeaturizer
+2021-05-04 14:13:15 INFO     rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer  - 80 vocabulary slots consumed out of 1080 slots configured for text attribute.
+2021-05-04 14:13:15 INFO     rasa.nlu.model  - Finished training component.
+2021-05-04 14:13:15 INFO     rasa.nlu.model  - Starting to train component CountVectorsFeaturizer
+2021-05-04 14:13:15 INFO     rasa.nlu.featurizers.sparse_featurizer.count_vectors_featurizer  - 697 vocabulary slots consumed out of 1697 slots configured for text attribute.
+2021-05-04 14:13:15 INFO     rasa.nlu.model  - Finished training component.
+2021-05-04 14:13:15 INFO     rasa.nlu.model  - Starting to train component DIETClassifier
+2021-05-04 14:13:15.565466: E tensorflow/stream_executor/cuda/cuda_driver.cc:314] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+Epochs: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:21<00:00,  4.71it/s, t_loss=1.6, i_acc=0.986]
+2021-05-04 14:13:36 INFO     rasa.nlu.model  - Finished training component.
+2021-05-04 14:13:36 INFO     rasa.nlu.model  - Starting to train component EntitySynonymMapper
+2021-05-04 14:13:36 INFO     rasa.nlu.model  - Finished training component.
+2021-05-04 14:13:36 INFO     rasa.nlu.model  - Starting to train component ResponseSelector
+2021-05-04 14:13:36 INFO     rasa.nlu.selectors.response_selector  - Retrieval intent parameter was left to its default value. This response selector will be trained on training examples combining all retrieval intents.
+2021-05-04 14:13:36 INFO     rasa.nlu.model  - Finished training component.
+2021-05-04 14:13:36 INFO     rasa.nlu.model  - Starting to train component FallbackClassifier
+2021-05-04 14:13:36 INFO     rasa.nlu.model  - Finished training component.
+2021-05-04 14:13:37 INFO     rasa.nlu.model  - Successfully saved model into '/tmp/tmpnyubnd1o/nlu'
+NLU model training completed.
+Training Core model...
+Processed story blocks: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 2389.01it/s, # trackers=1]
+Processed story blocks: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 1027.09it/s, # trackers=3]
+Processed story blocks: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 216.68it/s, # trackers=12]
+Processed story blocks: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 57.71it/s, # trackers=39]
+Processed rules: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 2841.67it/s, # trackers=1]
+Processed trackers: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 968.21it/s, # actions=12]
+Processed actions: 12it [00:00, 9619.96it/s, # examples=12]
+Processed trackers: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 120/120 [00:00<00:00, 221.05it/s, # actions=30]
+Epochs: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:10<00:00,  9.44it/s, t_loss=0.645, loss=0.473, acc=1]
+Processed trackers: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1672.37it/s, # actions=5]
+Processed actions: 5it [00:00, 15420.24it/s, # examples=4]
+Processed trackers: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00, 895.20it/s, # actions=12]
+Processed trackers: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1699.82it/s]
+Processed trackers: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:00<00:00, 1040.67it/s]
+2021-05-04 14:13:57 INFO     rasa.core.agent  - Persisted model to '/tmp/tmpnyubnd1o/core'
+Core model training completed.
+Your Rasa model is trained and saved at '/mnt/01D322563C532490/dev_project/Python/NLP/chatbot/chatbot/models/20210504-141310.tar.gz'.
+? Do you want to speak to the trained assistant on the command line? 🤖 Yes                                                                                                                   
+2021-05-04 14:14:12 INFO     rasa.model  - Loading model chatbot/models/20210504-141310.tar.gz...
+2021-05-04 14:14:13 INFO     root  - Starting Rasa server on http://localhost:5005
+2021-05-04 14:14:13 INFO     rasa.model  - Loading model chatbot/models/20210504-141310.tar.gz...
+2021-05-04 14:14:28 INFO     root  - Rasa server is up and running.
+Bot loaded. Type a message and press enter (use '/stop' to exit): 
+Your input ->  co cc                                                                                                                                                                          
+Your input ->  hai vl                                                                                                                                                                         
+Hey! How are you?
+Your input ->                                                                                                                                                                                 
+Hey! How are you?
+Your input ->  exit                                                                                                                                                                           
+Great, carry on!
+Your input ->  exit                                                                                                                                                                           
+Great, carry on!
+Your input ->                                                                                                                                                                                 
+
+Cancelled by user
+
+2021-05-04 14:15:15 INFO     root  - Killing Sanic server now.
+
